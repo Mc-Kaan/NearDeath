@@ -3,617 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NearDeath | Minecraft Klanı</title>
+    <title>NearDeath | Anasayfa</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0d0d0d;
-            color: #e0e0e0;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Üst banner */
-        .top-banner {
-            background: linear-gradient(90deg, #1a1a1a, #2a2a2a, #1a1a1a);
-            text-align: center;
-            padding: 12px 20px;
-            font-size: 15px;
-            border-bottom: 1px solid #333;
-            position: relative;
-            z-index: 100;
-        }
-
-        .top-banner a {
-            color: #ff6b6b;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.25s ease;
-        }
-
-        .top-banner a:hover {
-            color: #ff9f9f;
-            text-shadow: 0 0 8px rgba(255, 107, 107, 0.4);
-        }
-
-        /* Navbar */
-        nav {
-            background: #151515;
-            padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-            border-bottom: 1px solid #2a2a2a;
-            position: sticky;
-            top: 0;
-            z-index: 99;
-        }
-
-        .logo {
-            font-size: 26px;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo span {
-            color: #ff4d4d;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 8px;
-        }
-
-        .nav-links button {
-            background: transparent;
-            border: none;
-            color: #bbb;
-            font-size: 15px;
-            padding: 10px 18px;
-            cursor: pointer;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links button:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .nav-links button.active {
-            color: #ff4d4d;
-            background: rgba(255, 77, 77, 0.1);
-        }
-
-        .nav-links button.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 2px;
-            background: #ff4d4d;
-            border-radius: 2px;
-        }
-
-        /* Ana içerik */
-        .content {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 50px 30px 80px;
-            min-height: 60vh;
-        }
-
-        .page {
-            display: none;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
-        .page.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-            animation: fadeInUp 0.5s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        h2 {
-            font-size: 24px;
-            margin: 30px 0 15px;
-            color: #ff6b6b;
-        }
-
-        p {
-            margin-bottom: 16px;
-            color: #ccc;
-            font-size: 16px;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 12px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #ff4d4d;
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #ff6b6b;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 77, 77, 0.35);
-        }
-
-        /* Kartlar */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .card {
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            border-radius: 12px;
-            padding: 28px;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            border-color: #ff4d4d;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .card h3 {
-            color: #fff;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .card p {
-            font-size: 14px;
-            color: #aaa;
-            margin: 0;
-        }
-
-        /* Kurallar listesi */
-        .rules-list {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .rules-list li {
-            background: #1a1a1a;
-            padding: 14px 20px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            border-left: 4px solid #ff4d4d;
-            color: #ccc;
-        }
-
-        /* Discord butonu özel */
-        .discord-link {
-            color: #7289da;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            display: inline-block;
-            text-decoration: none;
-        }
-
-        .discord-link:hover {
-            transform: scale(1.15);
-            color: #99aab5;
-            text-shadow: 0 0 10px rgba(114, 137, 218, 0.5);
-        }
-
-        /* Sosyal linkler */
-        .social-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .social-item {
-            color: #bbb;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            font-size: 15px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .social-item:hover {
-            transform: scale(1.12);
-            color: #fff;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(180deg, #1a1a1a 0%, #111 100%);
-            padding: 50px 40px 30px;
-            border-top: 1px solid #2a2a2a;
-            margin-top: 40px;
-        }
-
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.4fr 1fr 1fr 1fr;
-            gap: 40px;
-        }
-
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-logo {
-            font-size: 22px;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .footer-logo span {
-            color: #ff4d4d;
-        }
-
-        .footer-brand p {
-            font-size: 14px;
-            color: #999;
-            line-height: 1.5;
-        }
-
-        .footer-brand a {
-            color: #ff6b6b;
-            text-decoration: none;
-        }
-
-        .footer-brand a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-col h4 {
-            color: #fff;
-            font-size: 15px;
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-
-        .footer-col a, .footer-col span {
-            display: block;
-            color: #aaa;
-            font-size: 14px;
-            margin-bottom: 10px;
-            text-decoration: none;
-            transition: all 0.25s ease;
-            cursor: pointer;
-        }
-
-        .footer-col a:hover, .footer-col span:hover {
-            color: #ff6b6b;
-            transform: translateX(4px);
-        }
-
-        .footer-bottom {
-            max-width: 1100px;
-            margin: 40px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid #2a2a2a;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            color: #666;
-        }
-
-        /* Toast bildirim */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: #222;
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 8px;
-            border: 1px solid #ff4d4d;
-            opacity: 0;
-            transition: all 0.35s ease;
-            z-index: 999;
-            font-size: 14px;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
-            nav {
-                padding: 0 20px;
-            }
-            .nav-links {
-                gap: 4px;
-            }
-            .nav-links button {
-                padding: 8px 12px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 {
-                font-size: 32px;
-            }
-            .nav-links {
-                display: none;
-            }
-            .mobile-menu {
-                display: block;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0d0d0d; color: #e0e0e0; line-height: 1.6; overflow-x: hidden; }
+        .top-banner { background: linear-gradient(90deg, #1a1a1a, #2a2a2a, #1a1a1a); text-align: center; padding: 12px 20px; font-size: 15px; border-bottom: 1px solid #333; }
+        .top-banner a { color: #ff6b6b; text-decoration: none; font-weight: 600; }
+        nav { background: #151515; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 70px; border-bottom: 1px solid #2a2a2a; position: sticky; top: 0; z-index: 99; }
+        .logo { font-size: 26px; font-weight: 700; color: #fff; }
+        .logo span { color: #ff4d4d; }
+        .nav-links { display: flex; gap: 8px; }
+        .nav-links a { color: #bbb; font-size: 15px; padding: 10px 18px; text-decoration: none; border-radius: 6px; transition: all 0.3s ease; position: relative; display: inline-block; }
+        .nav-links a:hover { color: #fff; background: rgba(255, 255, 255, 0.05); }
+        .nav-links a.active { color: #ff4d4d; background: rgba(255, 77, 77, 0.1); }
+        .nav-links a.active::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 2px; background: #ff4d4d; border-radius: 2px; }
+        .content { max-width: 1100px; margin: 0 auto; padding: 50px 30px 80px; min-height: 60vh; }
+        h1 { font-size: 36px; margin-bottom: 20px; color: #fff; }
+        h2 { font-size: 24px; margin: 30px 0 15px; color: #ff6b6b; }
+        p { margin-bottom: 16px; color: #ccc; font-size: 16px; }
+        .hero { text-align: center; padding: 40px 20px; }
+        .hero h1 { font-size: 48px; margin-bottom: 12px; }
+        .hero p { font-size: 18px; max-width: 600px; margin: 0 auto 30px; }
+        .btn { display: inline-block; background: #ff4d4d; color: #fff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .btn:hover { background: #ff6b6b; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 77, 77, 0.35); }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 40px; }
+        .card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 28px; transition: all 0.3s ease; }
+        .card:hover { border-color: #ff4d4d; transform: translateY(-4px); }
+        .card h3 { color: #fff; margin-bottom: 10px; font-size: 18px; }
+        .card p { font-size: 14px; color: #aaa; margin: 0; }
+        footer { background: linear-gradient(180deg, #1a1a1a 0%, #111 100%); padding: 50px 40px 30px; border-top: 1px solid #2a2a2a; margin-top: 40px; }
+        .footer-content { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+        .footer-brand { display: flex; flex-direction: column; gap: 12px; }
+        .footer-logo { font-size: 22px; font-weight: 700; color: #fff; }
+        .footer-logo span { color: #ff4d4d; }
+        .footer-col h4 { color: #fff; font-size: 15px; margin-bottom: 16px; }
+        .footer-col a { display: block; color: #aaa; font-size: 14px; margin-bottom: 10px; text-decoration: none; }
+        .footer-col a:hover { color: #ff6b6b; }
+        .footer-bottom { max-width: 1100px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid #2a2a2a; display: flex; justify-content: space-between; font-size: 13px; color: #666; }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #222; color: #fff; padding: 12px 24px; border-radius: 8px; border: 1px solid #ff4d4d; opacity: 0; transition: all 0.35s ease; z-index: 999; }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
     </style>
 </head>
 <body>
-
-    <!-- Üst duyuru -->
     <div class="top-banner">
-        Ekibimize katılmak için Discord'umuza gelmeyi unutmayın! → 
-        <a href="https://discord.gg/3aEa2ch7Ma" target="_blank" rel="noopener">discord.gg/3aEa2ch7Ma</a>
+        Ekibimize katılmak için Discord'umuza gelmeyi unutmayın! → <a href="https://discord.gg/3aEa2ch7Ma" target="_blank">discord.gg/3aEa2ch7Ma</a>
     </div>
 
-    <!-- Navbar -->
     <nav>
         <div class="logo">Near<span>Death</span></div>
         <div class="nav-links">
-            <button class="active" onclick="showPage('anasayfa', this)">Anasayfa</button>
-            <button onclick="showPage('hakkimizda', this)">Hakkımızda</button>
-            <button onclick="showPage('kurallar', this)">Kurallar</button>
-            <button onclick="showPage('katil', this)">Katıl</button>
-            <button onclick="showPage('iletisim', this)">İletişim</button>
+            <a href="index.html" class="active">Anasayfa</a>
+            <a href="hakkimizda.html">Hakkımızda</a>
+            <a href="kurallar.html">Kurallar</a>
+            <a href="katil.html">Katıl</a>
+            <a href="iletisim.html">İletişim</a>
         </div>
     </nav>
 
-    <!-- İçerik -->
     <div class="content">
+        <div class="hero">
+            <h1>Near<span style="color:#ff4d4d">Death</span></h1>
+            <p>Adaletli, eğlenceli ve samimi bir Minecraft klanı. Birlikte oynuyor, birlikte büyüyoruz.</p>
+            <a href="https://discord.gg/3aEa2ch7Ma" target="_blank" class="btn">Discord'a Katıl</a>
+        </div>
 
-        <!-- Anasayfa -->
-        <div id="anasayfa" class="page active">
-            <div class="hero">
-                <h1>Near<span style="color:#ff4d4d">Death</span></h1>
-                <p>Adaletli, eğlenceli ve samimi bir Minecraft klanı. Birlikte oynuyor, birlikte büyüyoruz.</p>
-                <a href="https://discord.gg/3aEa2ch7Ma" target="_blank" class="btn">Discord'a Katıl</a>
+        <div class="cards">
+            <div class="card">
+                <h3>Aktif Topluluk</h3>
+                <p>Her gün aktif üyelerle sohbet ve oyun keyfi.</p>
             </div>
-
-            <div class="cards">
-                <div class="card">
-                    <h3>Aktif Topluluk</h3>
-                    <p>Her gün aktif üyelerle sohbet ve oyun keyfi.</p>
-                </div>
-                <div class="card">
-                    <h3>Adil Ortam</h3>
-                    <p>Kurallara uyan, saygılı ve eğlenceli bir ortam sunuyoruz.</p>
-                </div>
-                <div class="card">
-                    <h3>Etkinlikler</h3>
-                    <p>Düzenli turnuva, event ve özel etkinlikler düzenliyoruz.</p>
-                </div>
+            <div class="card">
+                <h3>Adil Ortam</h3>
+                <p>Kurallara uyan, saygılı ve eğlenceli bir ortam sunuyoruz.</p>
+            </div>
+            <div class="card">
+                <h3>Etkinlikler</h3>
+                <p>Düzenli turnuva, event ve özel etkinlikler düzenliyoruz.</p>
             </div>
         </div>
-
-        <!-- Hakkımızda -->
-        <div id="hakkimizda" class="page">
-            <h1>Hakkımızda</h1>
-            <p>NearDeath, Minecraft'ta samimi ve adil bir klan ortamı sunmak amacıyla kurulmuş bir topluluktur.</p>
-            <p>Amacımız sadece oynamak değil, aynı zamanda uzun soluklu arkadaşlıklar kurmak ve birlikte güzel anılar biriktirmektir.</p>
-            
-            <h2>Neler Yapıyoruz?</h2>
-            <p>• Survival ve minigame odaklı oyunlar<br>
-               • Düzenli etkinlikler ve turnuvalar<br>
-               • Aktif Discord sohbeti<br>
-               • Yeni üyelere yardımcı olma kültürü</p>
-
-            <h2>Vizyonumuz</h2>
-            <p>Herkesin kendini rahat hissettiği, toksik davranışların olmadığı, eğlencenin ön planda olduğu bir klan olmak.</p>
-        </div>
-
-        <!-- Kurallar -->
-        <div id="kurallar" class="page">
-            <h1>Klan Kuralları</h1>
-            <p>Kurallara uymak herkesin sorumluluğundadır. İhlaller uyarı veya uzaklaştırma ile sonuçlanabilir.</p>
-            
-            <ul class="rules-list">
-                <li>1. Herkese saygılı ol. Hakaret, küfür ve toksik davranış yasaktır.</li>
-                <li>2. Hile, exploit veya haksız avantaj sağlayan her türlü yöntem yasaktır.</li>
-                <li>3. Spam, flood ve gereksiz etiketleme yapma.</li>
-                <li>4. Discord ve oyun içi kurallara uy.</li>
-                <li>5. Yetkililerin uyarılarına uy, tartışmaya girme.</li>
-                <li>6. Reklam ve başka sunucu tanıtımı yasaktır.</li>
-            </ul>
-        </div>
-
-        <!-- Katıl -->
-        <div id="katil" class="page">
-            <h1>Ekibimize Katıl</h1>
-            <p>NearDeath ailesine katılmak istiyorsan tek yapman gereken Discord sunucumuza gelmek.</p>
-            
-            <h2>Nasıl Katılırım?</h2>
-            <p>1. Aşağıdaki Discord linkine tıkla<br>
-               2. Sunucuya katıl<br>
-               3. Kendini tanıt ve kuralları oku<br>
-               4. Keyfine bak!</p>
-
-            <br>
-            <a href="https://discord.gg/3aEa2ch7Ma" target="_blank" class="btn">Discord'a Git</a>
-
-            <br><br>
-            <p style="margin-top:30px;">
-                Discord: <span class="discord-link" onclick="window.open('https://discord.gg/3aEa2ch7Ma', '_blank')">discord.gg/3aEa2ch7Ma</span>
-            </p>
-        </div>
-
-        <!-- İletişim -->
-        <div id="iletisim" class="page">
-            <h1>İletişim</h1>
-            <p>Bizimle iletişime geçmek veya soru sormak istersen aşağıdaki kanalları kullanabilirsin.</p>
-
-            <h2>Sosyal Medya & İletişim</h2>
-            <div class="social-links">
-                <span class="social-item" onclick="window.open('https://discord.gg/3aEa2ch7Ma', '_blank')">Discord </span>
-                <span class="social-item" onclick="copyText('mail@neardeath.com')">E-posta</span>
-            </div>
-
-            <h2 style="margin-top:40px;">E-posta</h2>
-            <p>
-                <span class="social-item" onclick="copyText('mailNearDeath@mail.com')">mailNearDeath@mail.com</span>
-            </p>
-        </div>
-
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="footer-logo">Near<span>Death</span></div>
-                <p>NearDeath klanı olarak sizlere adaletli ve eğlenceli bir ortam sunmak istiyoruz.<br>
-                This site is not affiliated with Mojang, Microsoft or Minecraft.</p>
-                <p>İletişim: <a href="mailto:mailneardeath@mail.com" onclick="copyText('mail@neardeath.com'); return false;">mail@neardeath.com</a></p>
-                <p style="font-size:13px; color:#777;">dc: kaanvip </p>
+                <p>NearDeath klanı olarak sizlere adaletli ve eğlenceli bir ortam sunuyoruz.<br>This site is not affiliated with Mojang, Microsoft or Minecraft.</p>
+                <p style="font-size:13px; color:#777;">dc: kaanvip</p>
             </div>
-
             <div class="footer-col">
                 <h4>Hızlı Menü</h4>
-                <a onclick="showPage('anasayfa', document.querySelectorAll('.nav-links button')[0])">Anasayfa</a>
-                <a onclick="showPage('hakkimizda', document.querySelectorAll('.nav-links button')[1])">Hakkımızda</a>
-                <a onclick="showPage('kurallar', document.querySelectorAll('.nav-links button')[2])">Kurallar</a>
-                <a onclick="showPage('katil', document.querySelectorAll('.nav-links button')[3])">Katıl</a>
-                <a onclick="showPage('iletisim', document.querySelectorAll('.nav-links button')[4])">İletişim</a>
+                <a href="index.html">Anasayfa</a>
+                <a href="hakkimizda.html">Hakkımızda</a>
+                <a href="kurallar.html">Kurallar</a>
+                <a href="katil.html">Katıl</a>
+                <a href="iletisim.html">İletişim</a>
             </div>
-
             <div class="footer-col">
                 <h4>Sosyal Medya</h4>
-                <span class="social-item" onclick="window.open('https://discord.gg/3aEa2ch7Ma', '_blank')">Discord</span>
+                <a href="https://discord.gg/3aEa2ch7Ma" target="_blank">Discord</a>
             </div>
-
             <div class="footer-col">
                 <h4>Bağlantılar</h4>
-                <a href="#">Üyelik Sözleşmesi</a>
-                <a href="#">Gizlilik Sözleşmesi</a>
-                <a onclick="showPage('iletisim', document.querySelectorAll('.nav-links button')[4])">İletişim</a>
+                <a href="iletisim.html">İletişim</a>
             </div>
         </div>
-
         <div class="footer-bottom">
             <span>Tüm hakları saklıdır. © 2026 NearDeath</span>
             <span>By: Kaan</span>
         </div>
     </footer>
-
-    <!-- Toast -->
     <div class="toast" id="toast">Kopyalandı!</div>
-
-    <script>
-        function showPage(pageId, btn) {
-            // Tüm sayfaları gizle
-            document.querySelectorAll('.page').forEach(p => {
-                p.classList.remove('active');
-            });
-
-            // Tüm butonları pasif yap
-            document.querySelectorAll('.nav-links button').forEach(b => {
-                b.classList.remove('active');
-            });
-
-            // Seçilen sayfayı göster
-            const page = document.getElementById(pageId);
-            page.classList.add('active');
-
-            // Butonu aktif yap
-            if (btn) btn.classList.add('active');
-
-            // Yukarı kaydır
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function copyText(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                const toast = document.getElementById('toast');
-                toast.textContent = '"' + text + '" kopyalandı!';
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2200);
-            }).catch(() => {
-                alert('Kopyalanamadı: ' + text);
-            });
-        }
-    </script>
 </body>
 </html>
