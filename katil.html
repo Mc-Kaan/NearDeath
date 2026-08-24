@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NearDeath | Katıl</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0d0d0d; color: #e0e0e0; line-height: 1.6; overflow-x: hidden; }
+        .top-banner { background: linear-gradient(90deg, #1a1a1a, #2a2a2a, #1a1a1a); text-align: center; padding: 12px 20px; font-size: 15px; border-bottom: 1px solid #333; }
+        .top-banner a { color: #ff6b6b; text-decoration: none; font-weight: 600; }
+        nav { background: #151515; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 70px; border-bottom: 1px solid #2a2a2a; position: sticky; top: 0; z-index: 99; }
+        .logo { font-size: 26px; font-weight: 700; color: #fff; }
+        .logo span { color: #ff4d4d; }
+        .nav-links { display: flex; gap: 8px; }
+        .nav-links a { color: #bbb; font-size: 15px; padding: 10px 18px; text-decoration: none; border-radius: 6px; transition: all 0.3s ease; position: relative; display: inline-block; }
+        .nav-links a:hover { color: #fff; background: rgba(255, 255, 255, 0.05); }
+        .nav-links a.active { color: #ff4d4d; background: rgba(255, 77, 77, 0.1); }
+        .nav-links a.active::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 2px; background: #ff4d4d; border-radius: 2px; }
+        .content { max-width: 1100px; margin: 0 auto; padding: 50px 30px 80px; min-height: 60vh; }
+        h1 { font-size: 36px; margin-bottom: 20px; color: #fff; }
+        h2 { font-size: 24px; margin: 30px 0 15px; color: #ff6b6b; }
+        p { margin-bottom: 16px; color: #ccc; font-size: 16px; }
+        .btn { display: inline-block; background: #ff4d4d; color: #fff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .btn:hover { background: #ff6b6b; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 77, 77, 0.35); }
+        .discord-link { color: #7289da; font-weight: 600; cursor: pointer; text-decoration: none; }
+        footer { background: linear-gradient(180deg, #1a1a1a 0%, #111 100%); padding: 50px 40px 30px; border-top: 1px solid #2a2a2a; margin-top: 40px; }
+        .footer-content { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+        .footer-brand { display: flex; flex-direction: column; gap: 12px; }
+        .footer-logo { font-size: 22px; font-weight: 700; color: #fff; }
+        .footer-logo span { color: #ff4d4d; }
+        .footer-col h4 { color: #fff; font-size: 15px; margin-bottom: 16px; }
+        .footer-col a { display: block; color: #aaa; font-size: 14px; margin-bottom: 10px; text-decoration: none; }
+        .footer-col a:hover { color: #ff6b6b; }
+        .footer-bottom { max-width: 1100px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid #2a2a2a; display: flex; justify-content: space-between; font-size: 13px; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="top-banner">
+        Ekibimize katılmak için Discord'umuza gelmeyi unutmayın! → <a href="https://discord.gg/3aEa2ch7Ma" target="_blank">discord.gg/3aEa2ch7Ma</a>
+    </div>
 
+    <nav>
+        <div class="logo">Near<span>Death</span></div>
+        <div class="nav-links">
+            <a href="index.html">Anasayfa</a>
+            <a href="hakkimizda.html">Hakkımızda</a>
+            <a href="kurallar.html">Kurallar</a>
+            <a href="katil.html" class="active">Katıl</a>
+            <a href="iletisim.html">İletişim</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Ekibimize Katıl</h1>
+        <p>NearDeath ailesine katılmak istiyorsan tek yapman gereken Discord sunucumuza gelmek.</p>
+        
+        <h2>Nasıl Katılırım?</h2>
+        <p>1. Aşağıdaki Discord linkine tıkla<br>
+           2. Sunucuya katıl<br>
+           3. Kendini tanıt ve kuralları oku<br>
+           4. Keyfine bak!</p>
+
+        <br>
+        <a href="https://discord.gg/3aEa2ch7Ma" target="_blank" class="btn">Discord'a Git</a>
+
+        <br><br>
+        <p style="margin-top:30px;">
+            Discord: <a href="https://discord.gg/3aEa2ch7Ma" target="_blank" class="discord-link">discord.gg/3aEa2ch7Ma</a>
+        </p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">Near<span>Death</span></div>
+                <p>NearDeath klanı olarak sizlere adaletli ve eğlenceli bir ortam sunuyoruz.<br>This site is not affiliated with Mojang, Microsoft or Minecraft.</p>
+                <p style="font-size:13px; color:#777;">dc: kaanvip</p>
+            </div>
+            <div class="footer-col">
+                <h4>Hızlı Menü</h4>
+                <a href="index.html">Anasayfa</a>
+                <a href="hakkimizda.html">Hakkımızda</a>
+                <a href="kurallar.html">Kurallar</a>
+                <a href="katil.html">Katıl</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+            <div class="footer-col">
+                <h4>Sosyal Medya</h4>
+                <a href="https://discord.gg/3aEa2ch7Ma" target="_blank">Discord</a>
+            </div>
+            <div class="footer-col">
+                <h4>Bağlantılar</h4>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>Tüm hakları saklıdır. © 2026 NearDeath</span>
+            <span>By: Kaan</span>
+        </div>
+    </footer>
+</body>
+</html>
